@@ -1,9 +1,9 @@
 # LibraryModules
-Contains[\n
-  ReadMe.txt\n
-  Help.py\n
-  update.py\n
-  Library.py\n
-  ChangeLog.txt\n
-]\n
+#Contains[
+#  ReadMe.txt
+#  Help.py
+#  update.py
+#  Library.py
+#  ChangeLog.txt
+#]
 
