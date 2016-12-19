@@ -16,7 +16,7 @@ def updateLib():
         # Fall back to Python 2's urllib2
         from urllib2 import urlopen as urlLibrary
     if(is_connected()==True):
-        data = (urlLibrary("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Main.py")).read()
+        data = (urlLibrary("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Library.py")).read()
         text = data.decode('utf-8')
         # i need some space #
         lib = open("Library.py", "w") # write contents of Github to file
