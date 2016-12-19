@@ -19,7 +19,7 @@ def updateLib():
         data = (urlLibrary("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Library.py")).read()
         text = data.decode('utf-8')
         # i need some space #
-        lib = open("Library.py", "w") # write contents of Github to file
+        lib = open(HOME+"/DavisCamrynLibrary/Library.py", "w") # write contents of Github to file
         lib.write(str(text))
         lib.close()
     else:
