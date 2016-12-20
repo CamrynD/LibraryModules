@@ -1,5 +1,17 @@
 import os,socket
 HOME = os.environ['HOME']
+Github = "https://raw.githubusercontent.com/CamrynD/LibraryModules/master/"
+urls {
+    "Library":(Github+"Library.py"),
+    "Help":"None",
+    "ReadMe":(Github+"README.md"),
+    "Changelog":"None",
+}
+
+
+
+
+
 def is_connected():
     try:
         socket.gethostbyname("www.google.com")
@@ -17,14 +29,16 @@ def updateLib():
         # Fall back to Python 2's urllib2
         from urllib2 import urlopen as urlLibrary
     def getFileAndWrite(urlToFile,pathToFileAndName):
-        print("V1044")
+        if((urlToFile=="None")or(urlToFile=="")):
+            print(urlToFile,pathToFileAndName,"404")
+            return "[404] url not found"
         data = (urlLibrary(urlToFile).read()).decode('utf-8')
         lib = open(pathToFileAndName, "w")
         lib.write(str(data))
         lib.close()
     def updateLibrary():
         if(is_connected()==True):
-            getFileAndWrite("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Library.py",HOME+"/DavisCamrynLibrary/Library.py")
+            getFileAndWrite(urls["Library"],HOME+"/DavisCamrynLibrary/Library.py")
         else:
             print("Offline: Unable to update Library")
         try:
@@ -35,7 +49,7 @@ def updateLib():
     def updateHelp():
         if(is_connected()==True):
             pass
-            #getFileAndWrite("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Help.py",HOME+"/DavisCamrynLibrary/Help.py")
+            getFileAndWrite(urls["Help"],HOME+"/DavisCamrynLibrary/Help.py")
         else:
             print("Offline: Unable to update Library")
         try:
@@ -45,7 +59,7 @@ def updateLib():
             return ("Offline: No Internet Connection [ Library not created ]")
     def updateReadMe():
         if(is_connected()==True):
-            getFileAndWrite("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/README.md",HOME+"/DavisCamrynLibrary/ReadMe.txt")
+            getFileAndWrite(urls["ReadMe"],HOME+"/DavisCamrynLibrary/ReadMe.txt")
         else:
             print("Offline: Unable to update Library")
         try:
@@ -56,7 +70,7 @@ def updateLib():
     def updateChangelog():
         if(is_connected()==True):
             pass
-            #getFileAndWrite("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Library.py",HOME+"/DavisCamrynLibrary/Library.py")
+            getFileAndWrite(urls["Changelog"],HOME+"/DavisCamrynLibrary/Library.py")
         else:
             print("Offline: Unable to update Library")
         try:
