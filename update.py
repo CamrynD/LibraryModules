@@ -1,7 +1,7 @@
 import os,socket
 HOME = os.environ['HOME']
 Github = "https://raw.githubusercontent.com/CamrynD/LibraryModules/master/"
-urls {
+urls = {
     "Library":(Github+"Library.py"),
     "Help":"None",
     "ReadMe":(Github+"README.md"),
