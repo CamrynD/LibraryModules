@@ -17,7 +17,7 @@ def updateLib():
         # Fall back to Python 2's urllib2
         from urllib2 import urlopen as urlLibrary
     def getFileAndWrite(urlToFile,pathToFileAndName):
-        data = ((urlLibrary(urlToFile)).read()).decode('utf-8')
+        data = (urlLibrary(urlToFile).read()).decode('utf-8')
         lib = open(pathToFileAndName, "w")
         lib.write(str(data))
         lib.close()
