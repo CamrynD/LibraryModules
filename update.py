@@ -1,26 +1,20 @@
 import os,socket
 HOME = os.environ['HOME']
+REPO = HOME+"/DavisCamrynLibrary/"
 Github = "https://raw.githubusercontent.com/CamrynD/LibraryModules/master/"
 urls = {
-    "Library":(Github+"Library.py"),
+    "Library":[(Github+"Library.py"),REPO+"Library.py"],
     "Help":"None",
-    "ReadMe":(Github+"README.md"),
+    "ReadMe":[(Github+"README.md"),REPO+"ReadMe.txt"],
     "Changelog":"None",
 }
-
-
-
-
-
 def is_connected():
     try:
         socket.gethostbyname("www.google.com")
         # s = socket.create_connection((host, 80), 2)# this does nothing asfar as i know.
         return True
     except:
-        pass
         return False
-
 def updateLib():
     try:
         # For Python 3.0 and later
@@ -36,6 +30,29 @@ def updateLib():
         lib = open(pathToFileAndName, "w")
         lib.write(str(data))
         lib.close()
+
+
+
+
+
+    for libName in urls.keys():
+        print(libName)
+        if(is_connected()==True):
+            getFileAndWrite(urls[libName][0],urls[libName][1])
+        else:
+            print("Offline: Unable to update/download Library")
+
+
+
+
+
+
+
+
+
+
+
+
     def updateLibrary():
         if(is_connected()==True):
             getFileAndWrite(urls["Library"],HOME+"/DavisCamrynLibrary/Library.py")
@@ -48,7 +65,6 @@ def updateLib():
             return ("Offline: No Internet Connection [ Library not created ]")
     def updateHelp():
         if(is_connected()==True):
-            pass
             getFileAndWrite(urls["Help"],HOME+"/DavisCamrynLibrary/Help.py")
         else:
             print("Offline: Unable to update Library")
@@ -69,7 +85,6 @@ def updateLib():
             return ("Offline: No Internet Connection [ Library not created ]")
     def updateChangelog():
         if(is_connected()==True):
-            pass
             getFileAndWrite(urls["Changelog"],HOME+"/DavisCamrynLibrary/Library.py")
         else:
             print("Offline: Unable to update Library")
@@ -78,7 +93,7 @@ def updateLib():
             return 0
         except ImportError:
             return ("Offline: No Internet Connection [ Library not created ]")
-    updateLibrary()
-    updateHelp()
-    updateReadMe()
-    updateChangelog()
+    #updateLibrary()
+    #updateHelp()
+    #updateReadMe()
+    #updateChangelog()
