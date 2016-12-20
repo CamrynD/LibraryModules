@@ -19,7 +19,7 @@ def updateLib():
     def getFileAndWrite(urlToFile,pathToFileAndName):
         data = ((urlLibrary(urlToFile)).read()).decode('utf-8')
         lib = open(pathToFileAndName, "w")
-        lib.write(str(text))
+        lib.write(str(data))
         lib.close()
     def updateLibrary():
         if(is_connected()==True):
