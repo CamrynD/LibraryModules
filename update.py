@@ -34,7 +34,8 @@ def updateLib():
             return ("Offline: No Internet Connection [ Library not created ]")
     def updateHelp():
         if(is_connected()==True):
-            getFileAndWrite("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Help.py",HOME+"/DavisCamrynLibrary/Help.py")
+            pass
+            #getFileAndWrite("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Help.py",HOME+"/DavisCamrynLibrary/Help.py")
         else:
             print("Offline: Unable to update Library")
         try:
