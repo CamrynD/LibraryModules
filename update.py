@@ -4,9 +4,9 @@ REPO = HOME+"/DavisCamrynLibrary/"
 Github = "https://raw.githubusercontent.com/CamrynD/LibraryModules/master/"
 urls = {
     "Library":[(Github+"Library.py"),REPO+"Library.py"],
-    "Help":"None",
+    "Help":[("None"),REPO+"None"],
     "ReadMe":[(Github+"README.md"),REPO+"ReadMe.txt"],
-    "Changelog":"None",
+    "Changelog":[("None"),REPO+"None"],
 }
 def is_connected():
     try:
