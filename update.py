@@ -1,4 +1,5 @@
 import os,socket
+HOME = os.environ['HOME']
 def is_connected():
     try:
         socket.gethostbyname("www.google.com")
