@@ -16,17 +16,53 @@ def updateLib():
     except ImportError:
         # Fall back to Python 2's urllib2
         from urllib2 import urlopen as urlLibrary
-    if(is_connected()==True):
-        data = (urlLibrary("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Library.py")).read()
-        text = data.decode('utf-8')
-        # i need some space #
-        lib = open(HOME+"/DavisCamrynLibrary/Library.py", "w") # write contents of Github to file
+    def getFileAndWrite(urlToFile,pathToFileAndName):
+        data = ((urlLibrary(urlToFile)).read()).decode('utf-8')
+        lib = open(pathToFileAndName, "w")
         lib.write(str(text))
         lib.close()
-    else:
-        print("Offline: Unable to update Library")
-    try:
-        import Library
-        return 0
-    except ImportError:
-        return ("Offline: No Internet Connection [ Library not created ]")
+    def updateLibrary():
+        if(is_connected()==True):
+            getFileAndWrite("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Library.py",HOME+"/DavisCamrynLibrary/Library.py")
+        else:
+            print("Offline: Unable to update Library")
+        try:
+            import Library
+            return 0
+        except ImportError:
+            return ("Offline: No Internet Connection [ Library not created ]")
+    def updateHelp():
+        if(is_connected()==True):
+            getFileAndWrite("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Help.py",HOME+"/DavisCamrynLibrary/Help.py")
+        else:
+            print("Offline: Unable to update Library")
+        try:
+            import Library
+            return 0
+        except ImportError:
+            return ("Offline: No Internet Connection [ Library not created ]")
+    def updateReadMe():
+        if(is_connected()==True):
+            getFileAndWrite("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/README.md",HOME+"/DavisCamrynLibrary/ReadMe.txt")
+        else:
+            print("Offline: Unable to update Library")
+        try:
+            import Library
+            return 0
+        except ImportError:
+            return ("Offline: No Internet Connection [ Library not created ]")
+    def updateChangelog():
+        if(is_connected()==True):
+            pass
+            #getFileAndWrite("https://raw.githubusercontent.com/CamrynD/LibraryModules/master/Library.py",HOME+"/DavisCamrynLibrary/Library.py")
+        else:
+            print("Offline: Unable to update Library")
+        try:
+            import Library
+            return 0
+        except ImportError:
+            return ("Offline: No Internet Connection [ Library not created ]")
+    updateLibrary()
+    updateHelp()
+    updateReadMe()
+    updateChangelog()
