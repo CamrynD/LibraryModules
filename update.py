@@ -24,7 +24,6 @@ def updateLib():
         from urllib2 import urlopen as urlLibrary
     def getFileAndWrite(urlToFile,pathToFileAndName):
         if((urlToFile=="None")or(urlToFile=="")):
-            print(urlToFile,pathToFileAndName,"404")
             return "[404] url not found"
         data = (urlLibrary(urlToFile).read()).decode('utf-8')
         lib = open(pathToFileAndName, "w")
@@ -32,7 +31,6 @@ def updateLib():
         lib.close()
 
     for libName in urls.keys():
-        print(libName)
         if(is_connected()==True):
             getFileAndWrite(urls[libName][0],urls[libName][1])
         else:
