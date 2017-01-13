@@ -1,6 +1,5 @@
 import os
 
-# usage 'os.system("python "+os.environ['HOME']+"/DavisCamrynLibrary/Help.py")'
 # rewrite format function
 def format(left,right,mode): # left side, right side, width (normal, wide, custom int)
     #maxWidth = int(os.popen('stty size', 'r').read().split()[1])#only works in a REAL terminal.
